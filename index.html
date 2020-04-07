@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="../../../../libs/js/vue/vue.js" type="text/javascript"></script>
+
+    <script src="scripts/controller_requests/requests.js" type="text/javascript"></script>
+    <script src="scripts/controller_requests/main.js" type="text/javascript"></script>
+
+    <script src="scripts/constants.js" type="text/javascript"></script>
+    <script src="scripts/commons/scriptlib.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="./styles/main.css">
+
+    <title>Hotel</title>
+</head>
+<body>
+    
+    <div id="app"></div>
+    <button id="regnew">
+        Registry new
+    </button>
+    <input type="date" id="date_from">
+    <input type="date" id="date_to">
+    <script>
+        document.getElementById('regnew').addEventListener('click', function(e) {
+            fetch(`http://${constants.HOST}:${constants.PORT}/${constants.CONTEXT_PATH}/book/registry`, {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: scriptlib.createElegantRequestBody({
+                    status: '1d00e978-420f-11ea-be17-0e7ede78f1df',
+                    date_from: document.getElementById('date_from').value,
+                    date_to: document.getElementById('date_to').value,
+                    number: 2
+                })
+            })
+            .then(response => response.text())
+            .then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    throw new Error(JSON.stringify(response));
+                    // scriptlib.notify(response.errMsg);
+                }
+            })
+            .catch(ex => {
+                scriptlib.notify(ex);
+            });
+        }, false);
+    </script>
+
+    <script src="scripts/book_page/application.js" type="text/javascript"></script>
+
+</body>
+</html>

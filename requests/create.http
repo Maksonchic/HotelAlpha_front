@@ -1,0 +1,13 @@
+POST /HotelAlpha/book/registry
+Host: localhost:8080
+# Host: 45.133.18.174:8085
+Content-Type: application/x-www-form-urlencoded
+
+status=1d00e978-420f-11ea-be17-0e7ede78f1df&date_from=01.01.2001 20:51&date_to=02.02.2002 20:51&number=5&v=1
+
+# status=5c4412f0-4142-11ea-be17-0e7ede78f1df&date_from=02.03.2004 13:51&date_to=01.02.2010 03:51&number=2&v=2
+
+# status=5c4412f0-4142-11ea-be17-0e7ede78f1df&date_from=02.03.1980 13:51&date_to=31.12.1999 23:50&number=2&v=3
+
+# status=5c46ac28-4142-11ea-be17-0e7ede78f1df&date_from=02.03.1999 13:51&date_to=01.02.2000 23:51&number=4&v=4
+

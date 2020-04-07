@@ -1,0 +1,10 @@
+GET /HotelAlpha/info/getall
+Host: localhost:8080
+# Host: 45.133.18.174:8085
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+
+GET /HotelAlpha/info/check/dates?from=11.02.2001 23:52&to=16.03.2005 13:51
+Host: localhost:8080
